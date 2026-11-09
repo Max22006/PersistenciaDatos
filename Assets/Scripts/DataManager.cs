@@ -5,11 +5,11 @@ public class DataManager : MonoBehaviour
 {
 
     public string nombreUsuario;
-   public int vigor;
-   public int fuerza;
-   public int resistencia;
-   public int inteligencia;
-   public float experiencia;
+    public int vigor;
+    public int fuerza;
+    public int resistencia;
+    public int inteligencia;
+    public float experiencia;
 
     void Awake()
     {
@@ -17,7 +17,7 @@ public class DataManager : MonoBehaviour
     }
     void Start()
     {
-        LoadData();
+        //LoadData();
     }
 
    
@@ -32,9 +32,14 @@ public class DataManager : MonoBehaviour
         {
             SaveData();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            LoadData();
+        }
     }
 
-    void SaveData()
+    /*void SaveData()
     {
         PlayerPrefs.SetString("NombreUsuario", nombreUsuario);
         PlayerPrefs.SetInt("VigorPersonaje", vigor);
@@ -51,5 +56,16 @@ public class DataManager : MonoBehaviour
         resistencia = PlayerPrefs.GetInt("StamPersonaje", 1);
         inteligencia = PlayerPrefs.GetInt("IntPersonaje", 1);
         experiencia = PlayerPrefs.GetFloat("EXPPersonaje", 1);
+    }*/
+
+    void SaveData()
+    {
+        PlayerData.nombreUsuario = nombreUsuario;
+        PlayerData.vigor = vigor;
+    }
+    void LoadData()
+    {
+        nombreUsuario = PlayerData.nombreUsuario;
+        vigor = PlayerData.vigor;
     }
 }
