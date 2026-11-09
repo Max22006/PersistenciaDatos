@@ -62,9 +62,13 @@ public class DataManager : MonoBehaviour
     {
         PlayerData.nombreUsuario = nombreUsuario;
         PlayerData.vigor = vigor;
+
+        PlayerData.Save();
     }
     void LoadData()
     {
+        PlayerData.Load();
+        
         nombreUsuario = PlayerData.nombreUsuario;
         vigor = PlayerData.vigor;
     }
